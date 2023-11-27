@@ -1,9 +1,11 @@
 package com.dj.jetpackcompose
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -29,8 +31,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-//            MessageCard(name = "Carol")
-            MessageCard(Message("Dhanraj", "The learning Art"))
+
+            JetPackComposeTheme {
+                Surface(modifier = Modifier.fillMaxSize()) {
+                    MessageCard(Message("Dhanraj", "The learning Art"))
+                }
+            }
         }
     }
 
@@ -53,25 +59,54 @@ class MainActivity : ComponentActivity() {
                     size(40.dp)
                     //clip image to be shaped as circle
                     .clip(CircleShape)
+                    .border(1.5.dp, MaterialTheme.colorScheme.primary, CircleShape)
                 )
             //add horizontal space between image and the column
             Spacer(modifier = Modifier.width(8.dp))
 
             Column {
-                Text(text = "Patrao ${msg.author}")
+                Text(text = "Patrao ${msg.author}",
+                    color = MaterialTheme.colorScheme.secondary,
+                    style = MaterialTheme.typography.titleSmall
+                )
                 //add vertical space between author and message text
                 Spacer(modifier = Modifier.height(4.dp))
-                Text(text = "${msg.body}")
+
+                Surface(
+                    shape = MaterialTheme.shapes.extraLarge,
+                    shadowElevation = 1.dp
+                ) {
+
+                    Text(text = "${msg.body}",
+                        modifier = Modifier.padding(all = 4.dp),
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                }
+
             }
         }
 
     }
-    
-    @Preview
+
+    @Preview("Dark Mode")
+    @Preview(
+        uiMode = Configuration.UI_MODE_NIGHT_YES,
+        showBackground = true,
+        name = "Dark Mode"
+    )
     @Composable
     fun PreviewMessageCard(){
 //        MessageCard(name = "Carol")
-        MessageCard(msg = Message("Dhanraj", "Look at me"))
+
+        JetPackComposeTheme {
+            Surface(
+//                modifier = Modifier.fillMaxSize()
+            ) {
+                MessageCard(msg = Message("Dhanraj", "Look at me"))
+            }
+        }
     }
+
+
 
 }
