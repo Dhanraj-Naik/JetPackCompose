@@ -42,10 +42,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
 
-            JetPackComposeTheme {
+            JetPackComposeTheme(false) {
                 Surface(modifier = Modifier.fillMaxSize()) {
 //                    MessageCard(Message("Dhanraj", "The learning Art"))
-                    Conversation(messages = SampleData.conversationSample)
+                    val list = remember {
+                        SampleData.conversationSample
+                    }
+                    Conversation(messages = list)
                 }
             }
         }
@@ -101,7 +104,9 @@ class MainActivity : ComponentActivity() {
                     // surfaceColor color will be changing gradually from primary to surface
                     color = surfaceColor,
                     // animateContentSize will change the Surface size gradually
-                    modifier = Modifier.animateContentSize().padding(1.dp)
+                    modifier = Modifier
+                        .animateContentSize()
+                        .padding(1.dp)
                 ) {
 
                     Text(text = "${msg.body}",
@@ -141,13 +146,20 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun Conversation(messages: List<Message>){
         LazyColumn{
-            items(messages) { message ->
-                MessageCard(msg = message)
-            }
+            items(
+                count = messages.size,
+                key = {
+                  "id${it}"
+                },
+                itemContent = { index ->
+                    val mItem = messages[index]
+                    MessageCard(msg = mItem)
+                }
+                )
         }
     }
 
-    @Preview
+    @Preview(showBackground = true, widthDp = 320)
     @Composable
     fun PreviewConversation(){
         JetPackComposeTheme {
