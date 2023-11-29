@@ -14,6 +14,4 @@
 
 ##### 6. Final Output
 ---
-![List with dummy Data][screenshot1]
-
-[screenshot1] : https://github.com/Dhanraj-Naik/JetPackCompose/blob/develop/img.png "Final Output"
+![List with dummy Data](https://github.com/Dhanraj-Naik/JetPackCompose/blob/develop/img.png)
