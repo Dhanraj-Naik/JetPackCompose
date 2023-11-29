@@ -7,6 +7,15 @@ android {
     namespace = "com.dj.jetpackcompose"
     compileSdk = 34
 
+    signingConfigs {
+        create("release"){
+            keyAlias = "bidchat"
+            keyPassword = "bidchat123"
+            storeFile = file("mySignature.keystore")
+            storePassword = "bidchat123"
+        }
+    }
+
     defaultConfig {
         applicationId = "com.dj.jetpackcompose"
         minSdk = 24
@@ -21,13 +30,25 @@ android {
     }
 
     buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+        getByName("debug") {
+            signingConfig = signingConfigs.getByName("debug")
+            isDebuggable = true
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.txt")
         }
+        getByName("release") {
+            signingConfig = signingConfigs.getByName("release")
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.txt")
+        }
+//        release {
+//            isMinifyEnabled = false
+//            proguardFiles(
+//                getDefaultProguardFile("proguard-android-optimize.txt"),
+//                "proguard-rules.pro"
+//            )
+//            signingConfig = signingConfigs.getByName("release")
+//        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
