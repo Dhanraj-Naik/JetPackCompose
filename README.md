@@ -14,4 +14,6 @@
 
 ##### 6. Final Output
 ---
-![List with dummy Data](https://github.com/Dhanraj-Naik/JetPackCompose/blob/develop/img.png : height: 200px)
+
+[//]: # (![List with dummy Data]&#40;https://github.com/Dhanraj-Naik/JetPackCompose/blob/develop/img.png&#41;)
+<img src="https://github.com/Dhanraj-Naik/JetPackCompose/blob/develop/img.png"  width="300" height="300">
