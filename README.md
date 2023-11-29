@@ -16,4 +16,4 @@
 ---
 
 [//]: # (![List with dummy Data]&#40;https://github.com/Dhanraj-Naik/JetPackCompose/blob/develop/img.png&#41;)
-<img src="https://github.com/Dhanraj-Naik/JetPackCompose/blob/develop/img.png"  width="300" height="300">
+<img src="https://github.com/Dhanraj-Naik/JetPackCompose/blob/develop/img.png" height="400">
