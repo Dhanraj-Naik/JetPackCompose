@@ -16,4 +16,4 @@
 ---
 ![List with dummy Data][screenshot1]
 
-[screenshot1] : https://github.com/Dhanraj-Naik/JetPackCompose/img.png "Final Output"
+[screenshot1] : https://github.com/Dhanraj-Naik/JetPackCompose/blob/develop/img.png "Final Output"
