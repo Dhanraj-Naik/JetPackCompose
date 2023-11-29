@@ -14,4 +14,4 @@
 
 ##### 6. Final Output
 ---
-![List with dummy Data](https://github.com/Dhanraj-Naik/JetPackCompose/blob/develop/img.png = 300x300)
+![List with dummy Data](https://github.com/Dhanraj-Naik/JetPackCompose/blob/develop/img.png | 300x300)
